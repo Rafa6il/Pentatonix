@@ -87,12 +87,17 @@
 
   <main id="main">
 
-    <!-- ======= Video Section "About" ======= -->
+    <!-- ======= Video Section ======= -->
     <section id="vid" class="video">
       <div class="container-fluid">
         <div class="row content">
           <div class="col-sm-3 sidenav">
             <h4>Información de la canción</h4>
+          <p></p>
+            <script src="assets/js/controllers.js"></script>
+            <p id="titulo"></p>++
+            <p>{{author}}</p>
+            <p>{{year}}</p>+
 
           </div>
 
@@ -104,6 +109,7 @@
                 <source src="assets/videos/video.mp4" type="video/mp4">
                 <source src="assets/videos/video.webm" type="video/webm">
                 <source src="assets/videos/video.ogv" type="video/ogg">
+                <track label="Metadata" kind="metadata" srclang="en" src="assets/tracks/cue.vtt" default />
               </video>
               <div id="video-controls" class="controls" data-state="hidden">
                 <button id="playpause" type="button" data-state="play">Play/Pause</button>
@@ -121,11 +127,18 @@
             </figure>
             </li>
             <li>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/lExW80sXsHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <script>
+                var src = {link};
+                if (src) {
+                  var html = '<iframe id="video" width="100%" height="315px" src=' + src + ' frameborder="0" allowfullscreen=""></iframe>'; // Add the preferred dimensions of the video
+                  document.getElementById('youtube').innerHTML = html;
+                }
+              </script>
+              <div id = youtube></div>
             </li>
             </ul>
-              <script src="assets/js/video-player.js"></script>
-            <script src="js/controllers.js"></script>
+            <script src="assets/js/video-player.js"></script>
+
 
           </div>
         </div>
